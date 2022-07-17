@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fullscreen Overlay Responsive Navigation Menu Using GSAP</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  </head>
+
+  <body>
+    <div class="menu-open">menu</div>
+    <div class="nav-container">
+      <div class="menu-close">close</div>
+
+      <nav class="menu">
+        <div class="menu__item item-1">
+          <img class="menu__item-img" src="img-1.png" />
+          <a href="#" class="menu__item-link">Project</a>
+        </div>
+        <div class="menu__item item-2">
+          <a href="#" class="menu__item-link">Collection</a>
+          <img class="menu__item-img" src="img-2.png" />
+        </div>
+        <div class="menu__item item-3">
+          <img class="menu__item-img" src="img-3.png" />
+          <a href="#" class="menu__item-link">Materialism</a>
+        </div>
+        <div class="menu__item item-4">
+          <a href="#" class="menu__item-link">Journal</a>
+          <img class="menu__item-img" src="img-4.png" />
+        </div>
+        <div class="menu__item item-5">
+          <img class="menu__item-img" src="img-5.png" />
+          <a href="#" class="menu__item-link">Production</a>
+        </div>
+        <div class="menu__item item-6">
+          <a href="#" class="menu__item-link">Contact</a>
+          <img class="menu__item-img" src="img-6.png" />
+        </div>
+      </nav>
+    </div>
+    <script>
+      var tl = new TimelineMax({ paused: true });
+
+      tl.to(".nav-container", 1, {
+        left: 0,
+        ease: Expo.easeInOut,
+      });
+
+      tl.staggerFrom(
+        ".menu > div",
+        0.8,
+        { y: 100, opacity: 0, ease: Expo.easeOut },
+        "0.1",
+        "-=0.4"
+      );
+
+      tl.reverse();
+      $(document).on("click", ".menu-open", function () {
+        tl.reversed(!tl.reversed());
+      });
+      $(document).on("click", ".menu-close", function () {
+        tl.reversed(!tl.reversed());
+      });
+
+      $(document).ready(function () {
+        $(".item-1").hover(
+          function () {
+            $(".nav-container").css("background-color", "#938089");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+
+        $(".item-2").hover(
+          function () {
+            $(".nav-container").css("background-color", "#b1b2b6");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+
+        $(".item-3").hover(
+          function () {
+            $(".nav-container").css("background-color", "#88a388");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+
+        $(".item-4").hover(
+          function () {
+            $(".nav-container").css("background-color", "#b1b2b6");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+
+        $(".item-5").hover(
+          function () {
+            $(".nav-container").css("background-color", "#b9b098");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+
+        $(".item-6").hover(
+          function () {
+            $(".nav-container").css("background-color", "#979781");
+          },
+          function () {
+            $(".nav-container").css("background", "#dfe8e0");
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
